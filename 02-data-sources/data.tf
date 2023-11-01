@@ -3,6 +3,6 @@ data "aws_ami" "example" {
   name_regex       = "Centos-8-DevOps-Practice"
   owners           = [" 973714476881"]
 }
-output "aws-ami-attributes" {
-  value = "aws_ami.example"
+output "ami" {
+  value = data.aws_ami.example
 }
