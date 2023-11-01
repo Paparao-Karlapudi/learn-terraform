@@ -1,5 +1,5 @@
 variable "sample" {
-  default = rao
+  default = 10
 }
 
 output "sample" {
