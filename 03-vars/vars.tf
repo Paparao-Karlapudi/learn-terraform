@@ -47,11 +47,12 @@ output "sample5" {
   value = var.sample5["number"]
 }
 
-#send variable through tfvars
+#send variable from tfvars
 variable "demo1" {}
 
 output "demo1" {
   value = var.demo1
 }
 
+#vars from SHELL env Vars
 
