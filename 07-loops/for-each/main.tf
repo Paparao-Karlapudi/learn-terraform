@@ -1,10 +1,10 @@
 resource "aws_instance" "test_instance" {
-  count         = length(var.components)
+  for_each      = var.components
   ami           = data.aws_ami.test_instance.id
-  instance_type = "t3.micro"
+  instance_type = each.value.instance_type
 
   tags = {
-    Name = var.components[count.index]
+    Name = each.value.name
   }
 }
 
@@ -19,5 +19,14 @@ output "publicip" {
 }
 
 variable "components" {
-  default = ["cart", "catalogue"]
+  default = {
+    cart = {
+      name = "cart"
+      instance_type = "t3.small"
+    }
+    catalogue = {
+      name = "catalogue"
+      instance_type = "t3.micro"
+    }
+  }
 }
