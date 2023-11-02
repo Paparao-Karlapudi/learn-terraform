@@ -1,10 +1,10 @@
 resource "aws_instance" "test_instance" {
   for_each      = var.components
   ami           = data.aws_ami.test_instance.id
-  instance_type = each.value["instance_type"]
+  instance_type = each.value.instance_type
 
   tags = {
-    Name = each.value.["name"]
+    Name = each.value.name
   }
 }
 
