@@ -14,9 +14,9 @@ data "aws_ami" "test_instance" {
   owners           = ["973714476881"]
 }
 
-output "publicip" {
-  value = aws_instance.test_instance.*.public_ip
-}
+#output "publicip" {
+#  value = aws_instance.test_instance.*.public_ip
+#}
 
 variable "components" {
   default = {
