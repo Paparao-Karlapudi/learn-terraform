@@ -12,14 +12,18 @@ resource "aws_instance" "test_instance" {
     Name = "terraform_test"
   }
 
+
+}
+
+resource "null_resource" "provision" {
   provisioner "remote-exec" {
     connection {
-      host = self.public_ip
+      host = aws_instance.test_instance.public_ip
       user = "centos"
       password = "DevOps321"
     }
     inline = [
-    "false"
+      "false"
     ]
   }
 }
