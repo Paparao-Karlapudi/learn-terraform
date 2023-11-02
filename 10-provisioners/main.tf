@@ -12,7 +12,7 @@ resource "aws_instance" "test_instance" {
     Name = "terraform_test"
   }
 
-  provisioner "remote_exec" {
+  provisioner "remote-exec" {
     connection {
       host = self.public_ip
       user = "centos"
