@@ -14,9 +14,12 @@ data "aws_ami" "test_instance" {
   owners           = ["973714476881"]
 }
 
-#output "publicip" {
+output "publicip" {
 #  value = aws_instance.test_instance.*.public_ip
-#}
+  value = {
+    for k, v in aws_instance.test_instance : k => v.public_ip
+  }
+}
 
 variable "components" {
   default = {
