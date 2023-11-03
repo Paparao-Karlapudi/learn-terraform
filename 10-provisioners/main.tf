@@ -16,15 +16,18 @@ resource "aws_instance" "test_instance" {
 }
 
 resource "null_resource" "provision" {
+  triggers = {
+    instance_id = aws_instance.test_instance.id
+  }
   provisioner "remote-exec" {
     connection {
-      host = aws_instance.test_instance.public_ip
-      user = "centos"
+      host     = aws_instance.test_instance.public_ip
+      user     = "centos"
       password = "DevOps321"
     }
-    inline = [
-      "false"
-    ]
+      inline = [
+      "echo Hello"
+     ]
   }
 }
 
