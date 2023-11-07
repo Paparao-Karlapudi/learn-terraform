@@ -1,3 +1,3 @@
-output "demo" {
-  value = "Hello World"
+output "test" {
+  value = "Welcome to terraform iteration1"
 }
