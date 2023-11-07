@@ -7,3 +7,11 @@ data "aws_ami" "example" {
 output "ami_info" {
   value = data.aws_ami.example
 }
+
+data "aws_instance" "foo" {
+  instance_id = "i-0f23e50a18a7702c5"
+}
+
+output "workstation_public_ip" {
+  value = data.aws_instance.foo.public_ip
+}
